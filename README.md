@@ -16,7 +16,7 @@
 
 ## 使用说明视频
 
-YouTube 上的操作演示，按发布先后：
+YouTube 上的操作演示，按发布先后。点链接会在当前页面打开，建议**右键「在新标签页中打开」**（或按住 Ctrl / ⌘ 再点）：
 
 1. [最新软路由代理 Open-Box 发布！全图形极简配置，超越 OpenClash/Nikki/Passwall + SubStore + Zashboard？](https://youtu.be/G_7AmjfSRQ8)
 2. [集成 ADGuard Home + 故障转移 + 解决 Google Play 无法下载，Open-Box 更新了啥？](https://youtu.be/fczlXs2t5tI)
