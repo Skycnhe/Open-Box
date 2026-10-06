@@ -16,7 +16,12 @@
 
 ## 使用说明视频
 
-[观看 Open-Box 使用说明视频（YouTube）](https://youtu.be/G_7AmjfSRQ8)
+YouTube 上的操作演示，按发布先后：
+
+1. [最新软路由代理 Open-Box 发布！全图形极简配置，超越 OpenClash/Nikki/Passwall + SubStore + Zashboard？](https://youtu.be/G_7AmjfSRQ8)
+2. [集成 ADGuard Home + 故障转移 + 解决 Google Play 无法下载，Open-Box 更新了啥？](https://youtu.be/fczlXs2t5tI)
+3. [魔改 Sing-Box 1.14 内核，直连提速 200%！等同 Dae 性能，绝无 DNS 泄露 + 链式代理，Open-Box 完整体来了！](https://youtu.be/5_Z9d2zyzAw)
+4. [Open-Box 客户端 Android 来啦！真一键配置 + 完美分流，绝无DNS泄露，是时候卸载 Karing/ClashMi 等其他代理 App 了](https://youtu.be/NVUssX8ILxE)
 
 ## 推荐服务
 
