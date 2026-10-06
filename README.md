@@ -10,6 +10,7 @@
 - **OpenWrt**（含 iStoreOS、ImmortalWrt 等衍生固件）：x86_64、aarch64；主路由或旁路由都行，带 LuCI 页面
 - **Debian / Ubuntu**（需要 systemd；Ubuntu 24.04 验证过）：x86_64、aarch64；作为旁路由或只给本机用，没有 LuCI 和 dnsmasq 分流，见[安装](#安装)里的 Debian / Ubuntu 一节
 - **Android 手机**（Open-Box App）：Android 12 及以上、64 位 ARM；和家里的 Open-Box 配对使用，在外面也按同一套规则分流，见[安卓客户端](#安卓客户端)
+- **macOS 电脑**（Open-Box App）：Apple 芯片（M1 及以后）、macOS 14 及以上；功能和安卓 App 一样，见[macOS 客户端](#macos-客户端)
 
 路由器 / 主机用同一份安装包、同一条安装命令，脚本自己识别系统。
 
@@ -73,7 +74,7 @@
 
 Open-Box App 把家里路由器的分流规则带到手机上：在外面也按同一套规则分流，App 里的内核和路由器是同一个 sing-box。
 
-- **安装与升级**：从 [Releases](https://github.com/liandu2024/Open-Box/releases/latest) 下载 `open-box-android-<版本>.apk`，第一次手动安装（系统会提示允许安装来自浏览器 / 文件管理器的应用）；以后在 App「设置 → 检查更新」里一键升级。
+- **安装与升级**：从 [Releases](https://github.com/liandu2024/Open-Box/releases) 下载最新的 `open-box-android-<版本>.apk`（客户端不是每个版本都更新，没带安装包的版本说明里写着最新版的下载链接；也可以在面板「设置 → 客户端」最上面的「客户端下载」里点安卓图标直接下），第一次手动安装（系统会提示允许安装来自浏览器 / 文件管理器的应用）；以后在 App「设置 → 检查更新」里一键升级。
 - **节点分流**：在面板「设置 → 客户端」的「节点分流（客户端）」里扫共享网络服务器的码。手机按所在地区选一组规则（「地区分流」，可以自动定位），国内网站本地直连，其余经家里的路由器出去；路由器要有公网 IP。
 - **本地分流**：扫面板「本地分流（客户端）」的码，或导入那里导出的文件。路由器的订阅节点、节点组、目标分流、链式代理整套导进手机，手机自己分流、不经过路由器；路由器上改了配置，在 App 里同步一下就跟上，订阅在手机本机按计划刷新。
 - **和路由器一样的分流**：选了直连的流量不进内核；「连接」页能看每条连接走哪条线路、看内核日志，「路由」页签输入网址就能看它按哪条规则走（规则路由）、实际访问时怎么走（真实路由）。
@@ -88,6 +89,27 @@ Open-Box App 把家里路由器的分流规则带到手机上：在外面也按�
 <p>
   <img src="docs/pic/app-route.webp" alt="App 连接 · 路由" width="45%">
   <img src="docs/pic/app-settings.webp" alt="App 设置" width="45%">
+</p>
+
+## macOS 客户端
+
+和安卓 App 同一套界面和功能：节点分流 / 本地分流、和路由器一样的分流规则、节点测速、连接指定 Wi-Fi 暂停。App 常驻菜单栏，退出 App 就断开 VPN；设置里有开机自启开关（默认关）。
+
+- **系统要求**：Apple 芯片（M1 及以后）的 Mac，macOS 14 及以上。
+- **安装**：从 [Releases](https://github.com/liandu2024/Open-Box/releases) 下载最新的 `open-box-macos-<版本>-arm64.dmg`（或在面板「设置 → 客户端」的「客户端下载」里点 macOS 图标），打开后把 Open-Box 拖进「应用程序」。App 没有 Apple 开发者签名，第一次打开会提示无法验证：到「系统设置 → 隐私与安全性」最下面点「仍要打开」（macOS 15 起右键「打开」已经绕不过去）。第一次打开还会请你输一次电脑密码，装一个后台服务（建立 VPN、修改系统 DNS 用，断开后自动还原）。
+- **升级**：在 App「设置 → 检查更新」里一键升级，不用再点「仍要打开」；后台服务有变化时会再请你输一次电脑密码。
+- **卸载**：App「设置 → 卸载 Open-Box」。
+- 「连接指定 Wi-Fi 暂停」要允许 App 使用位置信息（macOS 只把 Wi-Fi 名称给有定位权限的 App）。
+
+首页（节点分流）、代理 · 策略（本地分流）、连接 · 路由、设置：
+
+<p>
+  <img src="docs/pic/mac-home.webp" alt="macOS 首页" width="45%">
+  <img src="docs/pic/mac-proxies.webp" alt="macOS 代理 · 策略" width="45%">
+</p>
+<p>
+  <img src="docs/pic/mac-route.webp" alt="macOS 连接 · 路由" width="45%">
+  <img src="docs/pic/mac-settings.webp" alt="macOS 设置" width="45%">
 </p>
 
 ## 主要功能
@@ -117,6 +139,9 @@ Open-Box App 把家里路由器的分流规则带到手机上：在外面也按�
 - `x64`：x86_64 路由器 / 主机
 - `arm64`：aarch64 路由器 / 主机
 - `open-box-android-<版本>.apk`：安卓客户端（见[安卓客户端](#安卓客户端)）
+- `open-box-macos-<版本>-arm64.dmg`：macOS 客户端（见[macOS 客户端](#macos-客户端)）
+
+客户端只在有更新时随版本发布；最新版没带的话，它的版本说明末尾「客户端下载」一节有最新安装包的链接，也可以在 [Releases](https://github.com/liandu2024/Open-Box/releases) 列表里往前找。
 
 同一份安装包既能装在 OpenWrt 上，也能装在 Debian / Ubuntu（systemd）上，安装脚本会自行识别（见[安装](#安装)末尾）。
 
