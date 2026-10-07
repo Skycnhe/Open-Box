@@ -11,6 +11,7 @@
 - **Debian / Ubuntu**（需要 systemd；Ubuntu 24.04 验证过）：x86_64、aarch64；作为旁路由或只给本机用，没有 LuCI 和 dnsmasq 分流，见[安装](#安装)里的 Debian / Ubuntu 一节
 - **Android 手机**（Open-Box App）：Android 12 及以上、64 位 ARM；和家里的 Open-Box 配对使用，在外面也按同一套规则分流，见[安卓客户端](#安卓客户端)
 - **macOS 电脑**（Open-Box App）：Apple 芯片（M1 及以后）、macOS 14 及以上；功能和安卓 App 一样，见[macOS 客户端](#macos-客户端)
+- **Windows 电脑**（Open-Box App）：Windows 10 / 11 64 位；功能和安卓 App 一样，见[Windows 客户端](#windows-客户端)
 
 路由器 / 主机用同一份安装包、同一条安装命令，脚本自己识别系统。
 
@@ -117,6 +118,27 @@ Open-Box App 把家里路由器的分流规则带到手机上：在外面也按�
   <img src="docs/pic/mac-settings.webp" alt="macOS 设置" width="45%">
 </p>
 
+## Windows 客户端
+
+和安卓 App 同一套界面和功能：节点分流 / 本地分流、和路由器一样的分流规则、节点测速、连接指定 Wi-Fi 暂停。App 常驻任务栏右下角：关掉窗口还在后台，左键点图标打开窗口，右键菜单里可以连接 / 断开、退出；退出 App 就断开 VPN。设置里有开机自启开关（默认关）。
+
+- **系统要求**：Windows 10 / 11，64 位。
+- **安装**：从 [Releases](https://github.com/liandu2024/Open-Box/releases) 下载最新的 `open-box-windows-<版本>-x64-setup.exe`（或在面板「设置 → 客户端」的「客户端下载」里点 Windows 图标），双击安装。安装包没有代码签名，运行时会提示「Windows 已保护你的电脑」：点「更多信息 → 仍要运行」，再在用户账户控制里点「是」。安装时会装一个后台服务（建立 VPN 用）。
+- **升级**：在 App「设置 → 检查更新」里一键升级：用户账户控制里点一次「是」，装好后 App 自动重新打开。
+- **卸载**：App「设置 → 卸载 Open-Box」，或在 Windows「设置 → 应用 → 已安装的应用」里卸载 Open-Box。
+- 「连接指定 Wi-Fi 暂停」在 Windows 11 24H2 及以后要在「设置 → 隐私和安全性 → 位置」里打开定位服务、允许桌面应用访问位置（Windows 只把 Wi-Fi 名称给有定位权限的应用）。
+
+首页（节点分流）、代理 · 策略（本地分流）、连接 · 路由、设置：
+
+<p>
+  <img src="docs/pic/win-home.webp" alt="Windows 首页" width="45%">
+  <img src="docs/pic/win-proxies.webp" alt="Windows 代理 · 策略" width="45%">
+</p>
+<p>
+  <img src="docs/pic/win-route.webp" alt="Windows 连接 · 路由" width="45%">
+  <img src="docs/pic/win-settings.webp" alt="Windows 设置" width="45%">
+</p>
+
 ## 主要功能
 
 - **订阅与节点**：支持 Clash 配置、base64 节点分享和 shadowsocks、vmess、vless（含 REALITY）、trojan、hysteria2（含端口跳跃）、tuic、anytls、wireguard 等协议。节点命名遵循 Open-Box 的重命名规则：有重命名时使用重命名，没有重命名时保留原名称。
@@ -145,6 +167,7 @@ Open-Box App 把家里路由器的分流规则带到手机上：在外面也按�
 - `arm64`：aarch64 路由器 / 主机
 - `open-box-android-<版本>.apk`：安卓客户端（见[安卓客户端](#安卓客户端)）
 - `open-box-macos-<版本>-arm64.dmg`：macOS 客户端（见[macOS 客户端](#macos-客户端)）
+- `open-box-windows-<版本>-x64-setup.exe`：Windows 客户端（见[Windows 客户端](#windows-客户端)）
 
 客户端只在有更新时随版本发布；最新版没带的话，它的版本说明末尾「客户端下载」一节有最新安装包的链接，也可以在 [Releases](https://github.com/liandu2024/Open-Box/releases) 列表里往前找。
 
